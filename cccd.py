@@ -31,7 +31,7 @@ def load_and_process_image(url):
     return image
 
 def create_outfit_collage(clothes_urls, external_items_urls):
-    equipped_skins_image = Image.open('/storage/emulated/0/Download/background.jpg').convert("RGBA")
+    equipped_skins_image = Image.open('background.jpg').convert("RGBA")
     images = [load_and_process_image(url) for url in clothes_urls]
     images = [img.resize((300, 300), Image.Resampling.LANCZOS) for img in images if img is not None]
     positions = [(19, 140), (319, 140), (628, 140), (18, 550), (319, 550), (628, 550), (19, 628), (319, 628), (628, 628)]
@@ -65,7 +65,7 @@ def create_avatar_banner_collage(data, font_size):
 
     draw = ImageDraw.Draw(collage)
     try:
-        font = ImageFont.truetype("/storage/emulated/0/Download/arial.ttf", font_size)
+        font = ImageFont.truetype("arial.ttf", font_size)
     except IOError:
         font = ImageFont.load_default()
     draw.text((135, 10), name, fill="White", font=font)
@@ -149,7 +149,7 @@ def send_account_info(message):
 
     waiting_message = bot.send_message(message.chat.id, "⌨️")
 
-    api_url = f'https://www.public.freefireinfo.site/api/info/sg/{user_id}?key=profile_account'
+    api_url = f'https://www.public.freefireinfo.site/api/info/sg/{user_id}?key=vanhoastart'
     
     response = requests.get(api_url)
     if response.status_code == 404:
